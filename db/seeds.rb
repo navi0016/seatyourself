@@ -19,9 +19,9 @@ location = ["China Town", "Financial District", "Kensington Market", "The Juncti
 
 type_of_foods = ["Japanese", "American Nuevo", "Seafood", "Tex-Mex", "All You Can Eat"]
 
-start_time = Time.now.beginning_of_day + 60*60*5
+start_time = Time.new(2017,9,13,9,0,0,"+00:00")
 
-end_time = Time.now.end_of_day - 60*60*5
+end_time = Time.new(2017,9,13,23,0,0,"+00:00")
 
 capacity = Random.new
 
