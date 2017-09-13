@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module Seatyourself
   class Application < Rails::Application
     config.active_record.time_zone_aware_types = [:datetime, :time]
+    config.time_zone = 'Eastern Time (US & Canada)'
+
 
 
 

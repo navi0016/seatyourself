@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170912220701) do
     t.string   "email"
     t.string   "location"
     t.string   "type_of_food"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "capacity"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
