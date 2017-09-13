@@ -6,8 +6,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :location
       t.string :type_of_food
-      t.time :start_time
-      t.time :end_time
+      t.integer :start_time
+      t.integer :end_time
       t.integer :capacity
 
       t.timestamps
