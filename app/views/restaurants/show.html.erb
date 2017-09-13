@@ -1,0 +1,10 @@
+<h1> <%= @restaurant.name %> </h1>
+
+
+Location : <%= @restaurant.location %> <br>
+<br>
+Type of Food : <%= @restaurant.type_of_food %> <br>
+<br>
+Open <%= convert_time_hours(@restaurant.start_time) %> | Close <%= convert_time_hours(@restaurant.end_time) %>
+
+<h3>Make a Reservation now!</h3>

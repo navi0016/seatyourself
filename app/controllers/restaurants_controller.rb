@@ -3,13 +3,21 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
 
-    render :index
+
   end
 
   def show
-    @restaurant = Restaurant.find_by(params[:id])
+    @restaurant = Restaurant.find(params[:id])
+    @reservation = Reservation.new
 
-    render :show
   end
+
+  def new
+  end
+
+  def create
+  end
+
+  
 
 end
