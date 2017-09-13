@@ -8,3 +8,6 @@ Type of Food : <%= @restaurant.type_of_food %> <br>
 Open <%= convert_time_hours(@restaurant.start_time) %> | Close <%= convert_time_hours(@restaurant.end_time) %>
 
 <h3>Make a Reservation now!</h3>
+
+Date:<%=datetime_select(@reservation, "reservation_time",  default: 1.hour.from_now,ampm: true, start_hour: @restaurant.start_time.hour.to_i, end_hour: @restaurant.end_time.hour.to_i,datetime_separator: 'Time:',discard_minute: true,start_year: Date.today.year, start_month: Date.today.month, start_day: Date.today.day) %>
+Party size:<%=select("post", "party_size", 2..20) %>
