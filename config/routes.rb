@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     resources :reservations
   end
   root 'restaurants#index'
+
+  resources :users, only: [:new,:create]
 end
