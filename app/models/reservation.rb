@@ -5,8 +5,9 @@ class Reservation < ApplicationRecord
   belongs_to :restaurant
 
   # validation method
-  def available_times
+  def available_times(datetime)
 
+    # self.restaurant.reservation_time.sum(datetime)
   end
 
 
