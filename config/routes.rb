@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # setting routes for user session for only create, new, and destroy
+  resource :sessions, only: %i(:create :new :destroy)
 
   resources :restaurants do
     resources :reservations
