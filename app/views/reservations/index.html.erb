@@ -23,6 +23,26 @@ reservation_time <%= params[:reservation]["reservation_time(1i)"] %>
 <h3>All Current Open Seats <table>
 
 </table> </h3>
+
 <% (@restaurant.start_time.hour..@restaurant.end_time.hour).each do |time|%>
-  Time: <%=time%> Available Seats: <%=@restaurant.find_available_seats(DateTime.new(params[:reservation]["reservation_time(1i)"].to_i,params[:reservation]["reservation_time(2i)"].to_i,params[:reservation]["reservation_time(3i)"].to_i,time))%><button>Book</button><br>
+  <%=form_for(:reservation, url: restaurant_reservations_path) do |f| %>
+    <%=f.hidden_field :reservation_time, value: time %>
+    <%=f.hidden_field :party_size, value: params[:reservation][:party_size] %>
+    Time: <%=time%> Available Seats:
+    <%=
+      @restaurant.find_available_seats(
+        DateTime.new(params[:reservation]["reservation_time(1i)"].to_i,
+        params[:reservation]["reservation_time(2i)"].to_i,
+        params[:reservation]["reservation_time(3i)"].to_i,time)
+      )
+    %>
+    <%if params[:reservation][:party_size].to_i > @restaurant.find_available_seats(time)%>
+      <br>
+      Sorry No Seats Left, There are only <%= @restaurant.find_available_seats(time)%> seats left!
+      <br>
+     <%else%>
+      <%=f.submit "Book" %>
+      <br>
+    <%end%>
+  <%end%>
 <%end%>
