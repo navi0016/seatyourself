@@ -16,6 +16,8 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+
+
   end
 
 

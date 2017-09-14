@@ -11,7 +11,7 @@ Open <%= convert_time_hours(@restaurant.start_time) %> | Close <%= convert_time_
 <br>
 <h3>Make a Reservation now!</h3>
 
-<%= form_for [@restaurant, @reservation]   do |f|%>
+<%= form_for [@restaurant, @reservation], :method => :get   do |f|%>
 
 <div class="field">
 <%= f.label :reservation_time %>
