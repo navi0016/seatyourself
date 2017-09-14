@@ -8,7 +8,9 @@
 </head>
 <body>
   <nav>
-    <%= link_to "Seat Yourself", restaurants_path %>  |  <%= link_to "Log in", new_sessions_path %>
+    <%= link_to "Seat Yourself", restaurants_path %>  |
+    <%= link_to "Log in", new_sessions_path %>  |
+    <%= link_to "Sign up!", new_user_path %>
   </nav>
   <main>
     <%= yield %>
