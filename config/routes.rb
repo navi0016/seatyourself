@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # setting routes for user session for only create, new, and destroy
-  resource :sessions, only: %i(:create :new :destroy)
+  resource :sessions, only: [:create, :new, :destroy]
 
   resources :restaurants do
     resources :reservations
