@@ -1,5 +1,5 @@
 <h1>Seat Yourself</h1>
-
+<br>
 <div>
 <% @restaurants.each do |restaurant| %>
 
@@ -7,5 +7,6 @@
 <p><%= restaurant.location %> | <%= restaurant.type_of_food %></p>
 
     <%= link_to "Details", "/restaurants/#{restaurant.id}" %> <br>
+    <br>
 <% end %>
 </div>
