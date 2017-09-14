@@ -37,5 +37,5 @@ end
 
 20.times do
   res = Restaurant.all.sample
-  Reservation.create! reservation_time: rand(res.start_time..res.end_time) , party_size: rand(2..10) , user_id:User.all.sample.id , restaurant_id: res.id
+  Reservation.create! reservation_time: rand(res.start_time..res.end_time) , party_size: rand(2..10) , user_id:User.all.sample.id , restaurant_id: res.id, duration: 1
 end

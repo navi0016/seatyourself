@@ -3,4 +3,11 @@ class Reservation < ApplicationRecord
 
   belongs_to :user
   belongs_to :restaurant
+
+  # validation method
+  def available_times
+
+  end
+
+
 end

@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   def convert_time_hours(time)
     time.strftime("%I:%M%p")
   end
-
   helper_method :convert_time_hours
 
 end
