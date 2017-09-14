@@ -6,7 +6,7 @@ class Reservation < ApplicationRecord
 
   # validation method
   def can_be_made
-    if party_size  > restaurant.capacity
+    if party_size  > restaurant.find_available_seats(reservation_time)
       errors.add(:base, "Party size is too big, reservation can't be made!")
     end
   end
