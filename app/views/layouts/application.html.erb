@@ -7,11 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <nav>
     <%= link_to "Seat Yourself", restaurants_path %>  |
-    <%= link_to "Log in", new_sessions_path %>  |
-    <%= link_to "Sign up!", new_user_path %>
+    <% if current_user %>
+      <%= link_to "Log out", sessions_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log in", new_sessions_path %>  |
+      <%= link_to "Sign up!", new_user_path %>
+    <% end %>
   </nav>
+
   <main>
     <%= yield %>
 
