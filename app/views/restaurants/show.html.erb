@@ -14,6 +14,7 @@ Open <%= convert_time_hours(@restaurant.start_time) %> | Close <%= convert_time_
 <div class="field">
 <%= f.label :reservation_time %>
 <%= f.datetime_select(:reservation_time, default: 1.hour.from_now, ampm: true, start_hour: @restaurant.start_time.hour.to_i, end_hour: @restaurant.end_time.hour.to_i,datetime_separator: 'Time:',discard_minute: true,start_year: Date.today.year) %>
+<%= f.select :party_size, (2..10) %>
 </div>
 
 <%= submit_tag "Find a Table" %>
