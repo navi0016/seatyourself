@@ -1,0 +1,39 @@
+<h1>Edit Restaurant</h1>
+
+<p>
+  <%= link_to("Back", "/restaurant/#{@restaurant.id}") %>
+</p>
+
+<%= form_for(@restaurant, "edit_restaurant_path/#{@restaurant.id}") do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :type_of_food %><br>
+    <%= f.text_field :type_of_food %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br>
+    <%= f.datetime_field :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %><br>
+    <%= f.datetime_field :end_time %>
+  </p>
+  <p>
+    <%= f.label :capacity %><br>
+    <%= f.number_field :capacity %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

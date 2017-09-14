@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
 
-
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = @restaurant.reservations.new
@@ -16,7 +15,10 @@ class ReservationsController < ApplicationController
     @reservation.party_size = params[:reservation][:party_size]
     @reservation.user_id = session[:user_id]
 
-    if @reservation.save
+    if current_user == nil
+      flash[:notice] = "Please Log in first to make a Booking!"
+      redirect_to root_path
+    elsif @reservation.save
       flash[:notice] = "You're reservation has been book!"
       render :show
     else
