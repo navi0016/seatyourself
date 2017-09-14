@@ -9,14 +9,9 @@
 
   <div class="log-in password">
   <%= f.label :password %>
-  <%= f.text_field :password %>
+  <%= f.password_field :password %>
   </div>
 
-  <div class="log-in password_confirmation">
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %>
-  </div>
-  
   <%= f.submit "Log in" %>
 
 <% end %>

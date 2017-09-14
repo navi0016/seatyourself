@@ -32,7 +32,7 @@ end
 user_name = ['joe','bob','sue','gurjant','phil','john','mary','tom','sarah','navi']
 
 10.times do |i|
-  User.create! name: user_name[i-1], email: user_name[i-1]+"@gmail.com", phone_number: rand(111..999).to_s + "-" + rand(000..999).to_s + "-" + rand(0000..9999).to_s
+  User.create! name: user_name[i-1], email: user_name[i-1]+"@gmail.com", phone_number: rand(111..999).to_s + "-" + rand(000..999).to_s + "-" + rand(0000..9999).to_s, password_digest: BCrypt::Password.create('1234')
 end
 
 20.times do
