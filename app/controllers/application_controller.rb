@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :convert_time_hours
 
+  # this def is so we can display user email versus displaying user id (more personal). put this definiton in the application controller so it's available on all pages since all controllers inherit from application controller.
+  def current_user
+    session[:user_id] && User.find(session[:user_id])
+  end
+
 end
