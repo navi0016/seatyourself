@@ -26,7 +26,7 @@ reservation_time <%= params[:reservation]["reservation_time(4i)"] %>
 
 <% (@restaurant.start_time.hour..@restaurant.end_time.hour).each do |time|%>
   <%=form_for(:reservation, url: restaurant_reservations_path) do |f| %>
-    <%=f.hidden_field :reservation_time, value: time %>
+    <%=f.hidden_field :reservation_time, value: DateTime.new(@year,@month,@day, time) %>
     <%=f.hidden_field :party_size, value: params[:reservation][:party_size] %>
     Time: <%=time%> Available Seats:
     <%=
