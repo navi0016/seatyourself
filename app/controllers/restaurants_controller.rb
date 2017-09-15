@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
     @restaurant.start_time = params[:restaurant][:start_time]
     @restaurant.end_time = params[:restaurant][:end_time]
     @restaurant.capacity = params[:restaurant][:capacity]
-    @restaurant.use_id = current_user[:id]
+    @restaurant.user_id = current_user[:id]
 
     if @restaurant.save
     redirect_to root_path

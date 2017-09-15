@@ -1,6 +1,9 @@
 class ReservationsController < ApplicationController
 
   def index
+    # TODO: Find out why some bookings fail to save (eg. transaction is rolled back).
+    # TODO: Ensure that user is directed away from index view if essential params are missing.
+
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = @restaurant.reservations.new
     @selected_time=DateTime.new(params[:reservation]["reservation_time(1i)"].to_i,params[:reservation]["reservation_time(2i)"].to_i,params[:reservation]["reservation_time(3i)"].to_i, params[:reservation]["reservation_time(4i)"].to_i)
