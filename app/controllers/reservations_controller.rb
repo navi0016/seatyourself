@@ -23,18 +23,19 @@ class ReservationsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = @restaurant.reservations.new
 
-    @reservation.reservation_time = params[:reservation][:reservation_time]
-    @reservation.party_size = params[:reservation][:party_size]
+    @reservation.reservation_time = params["reservation"]["reservation_time"]
+    @reservation.party_size = params["reservation"]["party_size"]
     @reservation.user_id = session[:user_id]
 
     if current_user == nil
       flash[:notice] = "Please Log in first to make a Booking!"
       redirect_to root_path
-    elsif @reservation.save
+    else
+      # debugger
+      debugger
+      @reservation.save!
       flash[:notice] = "You're reservation has been book!"
       redirect_to restaurant_reservation_path @restaurant,@reservation
-    else
-      render :index
     end
 
   end
@@ -48,7 +49,7 @@ class ReservationsController < ApplicationController
   private
 
   def load_all_reservation
-    @reservatoin
+    @reservation
   end
 
 end
