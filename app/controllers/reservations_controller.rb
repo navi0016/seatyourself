@@ -4,6 +4,15 @@ class ReservationsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = @restaurant.reservations.new
     @selected_time=DateTime.new(params[:reservation]["reservation_time(1i)"].to_i,params[:reservation]["reservation_time(2i)"].to_i,params[:reservation]["reservation_time(3i)"].to_i, params[:reservation]["reservation_time(4i)"].to_i)
+
+    @year = params[:reservation]["reservation_time(1i)"].to_i
+    @month = params[:reservation]["reservation_time(2i)"].to_i
+    @day = params[:reservation]["reservation_time(3i)"].to_i
+
+    if @year && @month && @day
+    else
+      redirect_to 'http://google.com'
+    end
   end
 
 
@@ -20,7 +29,7 @@ class ReservationsController < ApplicationController
       redirect_to root_path
     elsif @reservation.save
       flash[:notice] = "You're reservation has been book!"
-      render :show
+      redirect_to restaurant_reservation_path @restaurant,@reservation
     else
       render :index
     end

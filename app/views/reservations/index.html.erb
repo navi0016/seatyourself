@@ -31,9 +31,7 @@ reservation_time <%= params[:reservation]["reservation_time(4i)"] %>
     Time: <%=time%> Available Seats:
     <%=
       @restaurant.find_available_seats(
-        DateTime.new(params[:reservation]["reservation_time(1i)"].to_i,
-        params[:reservation]["reservation_time(2i)"].to_i,
-        params[:reservation]["reservation_time(3i)"].to_i,time)
+        DateTime.new(@year,@month,@day,time)
       )
     %>
     <%if params[:reservation][:party_size].to_i > @restaurant.find_available_seats(time)%>
